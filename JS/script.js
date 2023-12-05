@@ -52,12 +52,24 @@ jQuery(document).ready(function() {
         const maxRow = parseInt(jQuery('#maxRow').val());
         const minColumn = parseInt(jQuery('#minColumn').val());
         const maxColumn = parseInt(jQuery('#maxColumn').val());
-  
+      
         // Validate and generate table
         if (!isNaN(minRow) && !isNaN(maxRow) && !isNaN(minColumn) && !isNaN(maxColumn)) {
           if (minRow <= maxRow && minColumn <= maxColumn) {
             if (minRow >= -50 && maxRow <= 50 && minColumn >= -50 && maxColumn <= 50) {
               generateTable(minRow, maxRow, minColumn, maxColumn);
+              
+              // Get the HTML content of the generated table
+              const tableHtml = jQuery('#tableContainer').html();
+              
+              // Create a unique tabId based on the parameters
+              const tabId = 'tab_' + minRow + '_' + maxRow + '_' + minColumn + '_' + maxColumn;
+              
+              // Create a label for the tab
+              const tabLabel = 'Table: ' + minRow + ' to ' + maxRow + ', ' + minColumn + ' to ' + maxColumn;
+              
+              // Call createTab function to generate a new tab
+              createTab(tabId, tableHtml, tabLabel);
             } else {
               displayError("errorMessage", "Please enter numbers between -50 and 50.");
             }
