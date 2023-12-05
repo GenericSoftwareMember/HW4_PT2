@@ -137,16 +137,21 @@ jQuery(document).ready(function() {
 
   // Function to create new tabs for generated tables
   function createTab(tabId, tableHtml, tabLabel) {
-    // Create a new tab
-    const newTab = jQuery('<div id="' + tabId + '">' + tableHtml + '</div>');
+    // Create a new tab structure
+    const newTab = '<div id="' + tabId + '">' + tableHtml + '</div>';
+    const ul = jQuery('#tabs ul');
+    const tabCount = ul.children('li').length + 1;
   
-    // Add the new tab to the tabs container
-    jQuery('#tabs').tabs('add', '#' + tabId, tabLabel);
+    // Append a new list item for the tab label
+    ul.append('<li><a href="#' + tabId + '">' + tabLabel + '</a></li>');
   
-    // Append the table HTML to the new tab
-    jQuery('#' + tabId).html(tableHtml);
+    // Append the new tab content
+    jQuery('#tabs').append(newTab);
+  
+    // Refresh the tabs
+    jQuery('#tabs').tabs('refresh');
+    jQuery('#tabs').tabs('option', 'active', tabCount - 1);
   }
-  
 
   // Function to delete individual tab
   function deleteTab(tabId) {
