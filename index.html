@@ -1,0 +1,59 @@
+<!--
+  Name: Kevin Sree
+  Email: kevinsree@Student.uml.edu
+  File: index.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+  <title>Multiplication Table</title>
+</head>
+<body>
+
+  <!-- Form used to create the multiplication table by obtaining 4 numbers -->
+  <form id="multiplicationForm">
+
+    <!-- Obtain the minimum row value, forced to input numbers only -->
+    <label for="minRow">Minimum Row Value:</label>
+    <input type="number" id="minRow" name="minRow" required>
+    
+    <!-- Obtain the maximum row value, forced to input numbers only -->
+    <label for="maxRow">Maximum Row Value:</label>
+    <input type="number" id="maxRow" name="maxRow" required>
+    
+    <br>
+    
+    <!-- Obtain the minimum column value, forced to input numbers only -->
+    <label for="minColumn">Minimum Column Value:</label>
+    <input type="number" id="minColumn" name="minColumn" required>
+    
+    <!-- Obtain the maximum column value, forced to input numbers only -->
+    <label for="maxColumn">Maximum Column Value:</label>
+    <input type="number" id="maxColumn" name="maxColumn" required>
+    
+    <br>
+    
+    <!-- The submit button once inputting numbers are done -->
+    <input type="submit" value="Generate Table">
+  </form>
+
+  <!-- Item used to display error messages gracefully -->
+  <div id = "errorMessage" class = "error-message">
+  </div>
+
+  <!-- The actual multiplication table -->
+  <div id="tableContainer" class="scrollable-container">
+  </div>
+
+  <!-- Connects the javascript to the html -->
+  <script src="JS/script.js"></script>
+  
+</body>
+</html>

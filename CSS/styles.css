@@ -1,0 +1,90 @@
+/*
+Name: Kevin Sree
+Email: kevinsree@student.uml.edu
+File: styles.css
+*/
+
+/* General formatting for entire site */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Formatting for the submission area */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Formatting for the labels for the values */
+label {
+    font-weight: bold;
+}
+
+/* Formatting for the submission boxes and the submission button */
+input[type = "number"], input[type = "submit"] {
+    padding: 8px;
+    border:  1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Formatting for the submission button when hovered over */
+input[type = "submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Formatting for the error message when displayed */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* General formatting for the multiplication table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Formatting for the boxes in the table */
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Changes the background color of the headers */
+th {
+    background-color: darkgrey;
+}
+
+/* Alternates the color of the rows for visibility */
+tr:nth-child(even) {
+    background-color: ivory;
+}
+
+/* Formatting for when the multiplication table is large */
+.scrollable-container {
+    max-height: 400px;
+    overflow: auto;
+}
+
+/* Making the top row sticky */
+.scrollable-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: darkgrey;
+}
+
+/* Making the first column sticky */
+.scrollable-container th:first-child,
+.scrollable-container td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background-color: darkgrey;
+}
