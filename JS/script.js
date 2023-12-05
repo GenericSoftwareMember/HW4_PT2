@@ -150,29 +150,29 @@ jQuery(document).ready(function() {
   // Function to create new tabs for generated tables
   function createTab(tabId, tableHtml, tabLabel) {
     const tabsContainer = jQuery('#tabs');
-  
+    
     // Check if the tab already exists, if so, remove it
     jQuery('#' + tabId).remove();
-  
+
     // Create a new tab structure
     const newTabContent = '<div id="' + tabId + '">' + tableHtml + '</div>';
-  
+
     // Add the new tab content to the tabs container
     tabsContainer.append(newTabContent);
-  
+
     // Initialize tabs if not already initialized
     if (!tabsContainer.hasClass('ui-tabs')) {
       tabsContainer.tabs();
     }
-  
+
     // Refresh the tabs
     tabsContainer.tabs('refresh');
-  
+
     // Add the tab header (list item)
     const tabHeaders = tabsContainer.find('ul');
     const newTabHeader = '<li><a href="#' + tabId + '">' + tabLabel + '</a></li>';
     tabHeaders.append(newTabHeader);
-  
+
     // Refresh the tabs after adding the new header
     tabsContainer.tabs('refresh');
   }
