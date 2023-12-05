@@ -61,13 +61,13 @@ jQuery(document).ready(function() {
               
               // Get the HTML content of the generated table
               const tableHtml = jQuery('#tableContainer').html();
-              
+
               // Create a unique tabId based on the parameters
-              const tabId = 'tab_' + minRow + '_' + maxRow + '_' + minColumn + '_' + maxColumn;
-              
+              const tabId = 'table_' + minRow + '_' + maxRow + '_' + minColumn + '_' + maxColumn;
+
               // Create a label for the tab
               const tabLabel = 'Table: ' + minRow + ' to ' + maxRow + ', ' + minColumn + ' to ' + maxColumn;
-              
+
               // Call createTab function to generate a new tab
               createTab(tabId, tableHtml, tabLabel);
             } else {
@@ -128,7 +128,7 @@ jQuery(document).ready(function() {
     errorMessageElement.text(message);
     }
 
-    // Replace input fields with sliders
+  // Replace input fields with sliders
   jQuery('#minRow, #maxRow, #minColumn, #maxColumn').each(function() {
     jQuery(this).slider({
       min: -50, // Set minimum and maximum values
