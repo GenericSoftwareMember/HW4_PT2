@@ -115,4 +115,42 @@ jQuery(document).ready(function() {
     const errorMessageElement = jQuery('#' + elementId);
     errorMessageElement.text(message);
     }
+
+    // Replace input fields with sliders
+  jQuery('#minRow, #maxRow, #minColumn, #maxColumn').each(function() {
+    jQuery(this).slider({
+      min: -50, // Set minimum and maximum values
+      max: 50,
+      slide: function(event, ui) {
+        // Update the corresponding input value on slide
+        jQuery(this).siblings('input').val(ui.value);
+      }
+    });
+    // Update the slider value based on the input field
+    jQuery(this).siblings('input').on('input', function() {
+      jQuery(this).prev('.ui-slider').slider('value', jQuery(this).val());
+    });
+  });
+
+  // Initialize tabs
+  jQuery('#tabs').tabs();
+
+  // Function to create new tabs for generated tables
+  function createTab(tabId, tableHtml, tabLabel) {
+    // Create a new tab with the given table HTML
+    jQuery('#tabs').tabs('add', '#' + tabId, tabLabel).html(tableHtml);
+  }
+
+  // Function to delete individual tab
+  function deleteTab(tabId) {
+    jQuery('#' + tabId).remove();
+    jQuery('#tabs').tabs('refresh');
+  }
+
+  // Function to delete multiple tabs
+  function deleteMultipleTabs(tabIds) {
+    tabIds.forEach(tabId => jQuery('#' + tabId).remove());
+    jQuery('#tabs').tabs('refresh');
+  }
+
 });
